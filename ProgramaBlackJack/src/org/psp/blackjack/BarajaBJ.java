@@ -5,7 +5,6 @@ import org.psp.naipes.Naipe;
 import org.psp.naipes.Palo;
 import org.psp.naipes.Rango;
 
-
 public class BarajaBJ extends Mazo{
 	public BarajaBJ(int numBarajas) {
 		super();
