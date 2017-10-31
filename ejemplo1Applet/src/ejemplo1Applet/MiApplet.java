@@ -30,10 +30,10 @@ public class MiApplet extends Applet implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		while() {
+		/*while() {
 			// varias los parametros de la animacion
 			repaint();
 			Thread.sleep(100);
-		}
+		}*/
 	}
 }
