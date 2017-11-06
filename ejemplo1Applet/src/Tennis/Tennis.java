@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 
 public class Tennis extends Applet implements Runnable, KeyListener{
 	final int WIDTH = 700, HEIGHT = 500;
+	int count=0;
 	Thread thread;
 	HumanPaddle p1;
 	AIPaddle p2;
@@ -35,9 +36,11 @@ public class Tennis extends Applet implements Runnable, KeyListener{
 	public void paint(Graphics g) {
 		gfx.setColor(Color.black);
 		gfx.fillRect(0, 0, WIDTH, HEIGHT);
+		
 		if(b1.getX() < -10 || b1.getX() > 710) {
 			gfx.setColor(Color.red);
 			gfx.drawString("Game Over", 350, 250);
+			gfx.drawString("Botes: " + b1.count, 600, 300);
 		}
 		else {
 		p1.draw(gfx);

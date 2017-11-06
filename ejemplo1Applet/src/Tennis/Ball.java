@@ -5,12 +5,14 @@ import java.awt.Graphics;
 
 public class Ball {
 	double xVel, yVel, x, y;
+	int count = 0;
 
 	public Ball() {
 		x = 350;
 		y = 250;
 		xVel = getRandomSpeed() * getRandomDirection();
-		yVel = getRandomSpeed() * getRandomDirection();;
+		yVel = getRandomSpeed() * getRandomDirection();
+		;
 	}
 
 	public double getRandomSpeed() {
@@ -37,6 +39,7 @@ public class Ball {
 		} else if (x >= 650) {
 			if (y >= p2.getY() && y <= p2.getY() + 80)
 				xVel = -xVel;
+			count++;
 		}
 	}
 
