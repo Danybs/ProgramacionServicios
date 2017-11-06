@@ -3,14 +3,16 @@ package Tennis;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class HumanPaddle implements Paddle {
+public class AIPaddle implements Paddle {
 	double y, yVel;
 	boolean upAccel, downAccel;
 	int player, x;
 	final double GRAVITY = 0.94;
+	Ball b1;
 
-	public HumanPaddle(int player) {
+	public AIPaddle(int player, Ball b) {
 		upAccel = false; downAccel = false;
+		b1 = b;
 		y = 210; yVel = 0;
 		if (player == 1)
 			x = 20;
@@ -25,22 +27,7 @@ public class HumanPaddle implements Paddle {
 	}
 
 	public void move() {
-		if(upAccel) {
-			yVel -= 2;
-		}
-		else if (downAccel) {
-			yVel += 2;
-		}
-		else if(!upAccel && !downAccel) {
-			yVel *= GRAVITY;
-		}
-		
-		if(yVel >=5)
-			yVel = 5;
-		else if(yVel <=-5)
-			yVel = -5;
-		
-		y += yVel;
+		y = b1.getY() - 40;
 		
 		if(y < 0)
 			y = 0;
@@ -48,14 +35,6 @@ public class HumanPaddle implements Paddle {
 			y = 420;
 	}
 	
-	public void setUpAccel(boolean input) {
-		upAccel = input;
-	}
-	
-	public void setDownAccel(boolean input) {
-		downAccel = input;
-	}
-
 	public int getY() {
 		return (int)y;
 	}
