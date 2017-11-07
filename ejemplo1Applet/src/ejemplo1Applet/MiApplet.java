@@ -36,9 +36,9 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 	@Override
 	public void start() {
 		running = true;
-//		if (t == null) {
+		//if (t == null) {		
 			t = new Thread(this);
-//		}
+		//}
 		t.start();
 	}
 
@@ -56,7 +56,9 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 //		}
 //		t = null;
 	}
-
+	
+	
+	
 	public void paint() {
 		this.g1.clearRect(0, 0, getWidth(), getHeight());
 		this.g1.fillOval((int) x - radio, (int) y - radio, radio * 2, radio * 2);
@@ -66,6 +68,7 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 	@Override
 	public void run() {
 		long t0 = System.nanoTime(), t1, lapso;
+		//while(!Thread.interrupted()) {
 		while (running) {
 			lapso = (t1 = System.nanoTime()) - t0;
 			t0 = t1;
@@ -81,19 +84,22 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 			paint();
 		}
 	}
+	
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			stop();
+			//t.interrupt();
 			
-			//t.suspend();
 		} 
 	}
+
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			start();
-			//t.resume();
+			
 			
 		} 
 	}
