@@ -1,13 +1,14 @@
 package ejemplo1Applet;
 
-//pon
 import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-public class MiApplet extends Applet implements Runnable {
+public class MiApplet extends Applet implements Runnable, KeyListener {
 
 	private Thread t = null;
 	private float x;
@@ -21,6 +22,7 @@ public class MiApplet extends Applet implements Runnable {
 	@Override
 	public void init() {
 		super.init();
+		this.addKeyListener(this);
 		x = getWidth() / 2;
 		y = getHeight() / 2;
 		vx = 30;
@@ -28,30 +30,31 @@ public class MiApplet extends Applet implements Runnable {
 		buffer = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 		g1 = buffer.getGraphics();
 		g2 = getGraphics();
+		
 	}
 
 	@Override
 	public void start() {
 		running = true;
-		if (t == null) {
+//		if (t == null) {
 			t = new Thread(this);
-		}
+//		}
 		t.start();
 	}
 
 	@Override
 	public void stop() {
-		super.stop();
+//		super.stop();
 		running = false;
-		while (true) {
-			try {
-				t.join();
-				break;
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		t = null;
+//		while (true) {
+//			try {
+//				t.join();
+//				break;
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		t = null;
 	}
 
 	public void paint() {
@@ -77,5 +80,26 @@ public class MiApplet extends Applet implements Runnable {
 			}
 			paint();
 		}
+	}
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			stop();
+			
+			//t.suspend();
+		} 
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			start();
+			//t.resume();
+			
+		} 
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		
 	}
 }
