@@ -12,7 +12,8 @@ import javax.swing.JPanel;
 public class VP extends JFrame implements ActionListener {
 
 	PanelCrono pi;
-	
+	JButton b1;
+	JButton b2;
 	public VP() {
 		setTitle("Cronómetro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,11 +21,12 @@ public class VP extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		JPanel ps = new JPanel();
 		add(ps, BorderLayout.NORTH);
-		JButton b1 = new JButton("Iniciar");
+		b1 = new JButton("Iniciar");
 		b1.setActionCommand("B1");
 		b1.addActionListener(this);
 		ps.add(b1);
-		JButton b2 = new JButton("Detener");
+		b2 = new JButton("Detener");
+		b2.setEnabled(false);
 		b2.setActionCommand("B2");
 		b2.addActionListener(this);
 		ps.add(b2);
@@ -44,6 +46,7 @@ public class VP extends JFrame implements ActionListener {
 		if (e.getActionCommand().equals("B1")) {
 			JButton b = (JButton) e.getSource();
 			if (b.getText().equals("Iniciar")) {
+				b2.setEnabled(true);
 				b.setText("Pausa");
 				pi.iniciarCrono();
 			}
@@ -57,7 +60,15 @@ public class VP extends JFrame implements ActionListener {
 			}
 		}
 		else if (e.getActionCommand().equals("B2")) {
+			if (b2.getText().equals("Detener")) {
+				pi.detenerCrono();
+				b1.setEnabled(false);
+				b2.setText("Reset");
 			
+			}
+			else if (b2.getText().equals("Reset")) {
+				pi.resetearCrono();
+			}
 		}
 	}
 
