@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 
+import java.awt.Graphics;
+
 import javax.swing.JPanel;
 
 public class PanelCrono extends JPanel implements Runnable {
@@ -30,6 +32,9 @@ public class PanelCrono extends JPanel implements Runnable {
 	
 	public void detenerCrono() {
 		
+	}
+	public void paint(Graphics e) {
+	
 	}
 	
 	@Override
