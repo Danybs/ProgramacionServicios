@@ -68,6 +68,10 @@ public class VP extends JFrame implements ActionListener {
 			}
 			else if (b2.getText().equals("Reset")) {
 				pi.resetearCrono();
+				b1.setEnabled(true);
+				b2.setEnabled(false);
+				b1.setText("Iniciar");		
+				b2.setText("Detener");	
 			}
 		}
 	}
