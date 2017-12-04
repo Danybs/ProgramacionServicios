@@ -24,6 +24,7 @@ public class Pelotas_gui extends JFrame implements Runnable{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
+		set
 		JPanel ps = new JPanel();
 	}
 
