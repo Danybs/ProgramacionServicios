@@ -1,6 +1,11 @@
 import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -24,40 +29,54 @@ rebote entre bolas
 // Pixel X 37795.275590551
 // pixel Y 3779.527559055
 public class Main {
-
+		public static void main(String args[]) {
+			new ventana();
+		}
 }
 
-class ventana extends JFrame {
-	private int width = 1000;
-	private int height = 800;
-	ventana() {
-		setTitle("Pelotas");
-
+class ventana extends JPanel implements Runnable{
+	
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
 		
-		pack(); // default size
-		setResizable(false);
-		setVisible(true);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(width, height);
 	}
-
-	// Elaborando el metodo inicial MAIN
-	public static void main(String args[]) {
-		new ventana();
+	public synchronized void () {
+		
 	}
+	@Override
+	protected void paintComponent(Graphics g) {
+		
+	}
+	
 
 
 }
 
 
 
-//class pelota extends Thread {
-//	
-//}
-//
-//
-//
-//class Hiloescena {
-//	
+class pelota {
+	public void move() {
+		
+	}
+	
+}
+
+class Hiloescena {
+	
+}
+
+
+//private int width = 100;
+//private int height = 70;
+//ventana() {
+//	setTitle("Pelotas");		
+//	pack(); // default size
+//	setResizable(false);
+//	setBackground(Color.yellow);
+//	setVisible(true);
+//	setLocationRelativeTo(null);
+//	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	setSize(width, height);
 //}
