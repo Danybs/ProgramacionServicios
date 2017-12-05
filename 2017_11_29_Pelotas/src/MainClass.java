@@ -25,11 +25,11 @@ public class MainClass extends JPanel {
   }
 
   public static void main(String[] args) {
-    JFrame frame = new JFrame();
-    frame.getContentPane().add(new MainClass());
-
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(200, 200);
-    frame.setVisible(true);
+//    JFrame frame = new JFrame();
+//    frame.getContentPane().add(new MainClass());
+//
+//    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    frame.setSize(200, 200);
+//    frame.setVisible(true);
   }
 }
