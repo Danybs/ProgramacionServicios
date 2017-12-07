@@ -95,6 +95,7 @@ class pantalla extends Canvas implements Runnable {
 			running = true;
 			t = new Thread(this);
 			t.start();
+			t2 = new Thread(this);
 		}
 	}
 
@@ -136,6 +137,6 @@ class pantalla extends Canvas implements Runnable {
 	private int x;
 	private int y;
 	private int dir;
-	private Thread t;
+	private Thread t,t2,t3;
 	private boolean running;
 }
